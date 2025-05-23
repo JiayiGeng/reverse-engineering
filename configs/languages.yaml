@@ -1,278 +1,232 @@
 language_1:
   language_rule: An
   description: Any number of As
-  difficulty: Easy
   example: AAAAAAAAA, AAA, A, AAAAAAAAAAAAA, AAAAA
 
 language_2:
   language_rule: AB
   description: Sigma* over {A, B}
-  difficulty: Easy
   example: AAA, BBB, ABBA, BAABBAA, ABBBBBAAAA
   
 language_3:
   language_rule: ABn
   description: (AB)^n
-  difficulty: Medium
   example: AB, ABAB, ABABAB, ABABABAB, ABABABABAB
   
 language_4:
   language_rule: AAA
   description: A, AA, or AAA
-  difficulty: Easy
   example: A, AA, AAA
 
 language_5:
   language_rule: AAAA
   description: A, AA, AAA, or AAAA
-  difficulty: Easy
   example: A, AA, AAA, AAAA
 
 language_6:
   language_rule: AnBm
   description: A^n B^m (n and m can be equal)
-  difficulty: Medium
   example: AB, AAB, AAABB, AAAABBBB, AABBB
 
 language_7:
   language_rule: GoldenMean
   description: Strings over {A, B} where no 2 A's ever appear in a row
-  difficulty: Easy
   example: B, AB, BA, BAB, ABA, BBABB
 
 language_8:
   language_rule: Even
   description: Strings over {A, B} where A's only appear in even-length groups
-  difficulty: Easy
   example: BB, AABB, BBAA, BAAABBAA, AABBAABBAABBAA
 
 language_9:
   language_rule: ApBAp
   description: A+ B A+
-  difficulty: Easy
   example: ABA, AABA, ABAAA, AAABAAAA
 
 language_10:
   language_rule: ApBApp
   description: A+ (B A+)+
-  difficulty: Medium
   example: ABA, ABAA, ABAABA, AAABAAAA, ABAABAAABA
 
 language_11:
   language_rule: AsBAsp
   description: A* (B A*)+
-  difficulty: Medium
   example: B, AB, BA, AABAA, BBBAAA, ABAAAABAA
 
 language_12:
   language_rule: CountA2
   description: Strings over {A, B} where the number of A's is at least 2
-  difficulty: Easy
   example: AA, ABA, AAB, BAABBA, AABBAABBAABBAA
 
 language_13:
   language_rule: CountAEven
   description: Strings over {A, B} where the number of A's is even
-  difficulty: Easy
   example: BB, AABB, BAABBA, AA, AABBAA, ABBBAAA, ABBBAAABBAA
 
 language_14:
   language_rule: aABb
   description: a Sigma+ b
-  difficulty: Easy
   example: aABb, aABABb, aABABABb, aBAAABb, aBAAABAAABb, aBAAABAAABAAABb
 
 language_15:
   language_rule: AnBn
   description: A^n B^n
-  difficulty: Medium
   example: AB, AABB, AAABBB, AAAABBBB, AAAAABBBBB
 
 language_16:
   language_rule: Dyck
   description: Balanced sequences of parentheses
-  difficulty: Easy_Medium
   example: (), (()), ()(), (()())
 
 language_17:
   language_rule: AnB2n
   description: A^n B^(2n)
-  difficulty: Hard
   example: ABB, AABBBB, AAABBBBBB, AAAABBBBBBBB
 
 language_18:
   language_rule: AnCBn
   description: A^n C B^n
-  difficulty: Hard
   example: ACB, AACBB, AAACBBB, C, AAAACBBBBB
 
 language_19:
   language_rule: AnABn
   description: A^n (AB)^n
-  difficulty: Medium
   example: AAB, AAABBB, AAAABBBBB, AAAAABBBBBBB
 
 language_20:
   language_rule: ABnABAn
   description: (AB)^n (ABA)^n
-  difficulty: Hard
   example: ABABABAABA, ABABABABAABAABA, ABABA, ABABABABABAABAABAABA
 
 language_21:
   language_rule: AnBmCn
   description: A^n B^m C^n
-  difficulty: Medium
   example: ABC, AABBC, AAABBBCCC, AAABBBBBCCC, AAAAABBBBCCCC
 
 language_22:
   language_rule: AnBmA2n
   description: A^n B^m A^(2n)
-  difficulty: Medium
   example: ABAA, AABBAAAA, AAABBAAAAAA, AAAABBBBAAAAAAAA
 
 language_23:
   language_rule: AnBnC2n
   description: A^n B^n C^(2n)
-  difficulty: Hard
   example: ABCC, AABBCCCC, AAABBBCCCCCC, AAAABBBBCCCCCCCC
 
 language_24:
   language_rule: AnBmCm
   description: A^n B^m C^m
-  difficulty: Medium
   example: ABC, AABBCC, AAABBBCCC, AAABBBBBCCC, AAAAABBBBBBBCCC, BBCC, AAA
 
 language_25:
   language_rule: AnBmCnpm
   description: A^n B^m C^(n+m)
-  difficulty: Medium
   example: ABCC, AABBCCCC, AAABCCCCCC, ABBBCCCC, AABBBBCCCCCC
 
 language_26:
   language_rule: AnBmCnm
   description: A^n B^m C^(n*m)
-  difficulty: Hard
   example: ABBCC, AABBCCCC, AAABBCCCCCCCCCC, AAABBCCCCCCCCCCCCCC
 
 language_27:
   language_rule: AnBk
   description: A^n B^(n+m)
-  difficulty: Medium
   example: ABB, AABB, AB, AABBB, AAABBBBB, AAAABBBBBB, ABBBBBB
 
 language_28:
   language_rule: AnBmCmAn
   description: A^n B^m C^m A^n
-  difficulty: Medium
   example: ABCA, ABBCCAA, AABBBCCCAA, AABBBBBCCCCCAA
 
 language_29:
   language_rule: AnB2nC3n
   description: A^n B^2n C^3n
-  difficulty: Hard
   example: ABBCCC, AABBBBCCCCCC, AAABBBBBBCCCCCCCCCC, AAAABBBBBBBBCCCCCCCCCCCC
 
 language_30:
   language_rule: AnBnp1Cnp2
   description: A^n B^(n+1) C^(n+2)
-  difficulty: Medium
   example: ABBCCC, AABBBCCCCC, AAABBBBCCCCCC, AAAABBBBBCCCCCCC, AAAAABBBBBBCCCCCCCC
 
 language_31:
   language_rule: AnUBn
   description: A^n | B^n
-  difficulty: Medium
   example: A, AA, AAAA, B, BB, BBBBB
 
 language_32:
   language_rule: AnUAnBn
   description: A^n | (A^n B^n)
-  difficulty: Medium
   example: A, AAA, AABB, AAABBB, AAAA
 
 language_33:
   language_rule: ABnUBAn
   description: (AB)^n | (BA)^n
-  difficulty: Medium
   example: AB, ABAB, BA, BABA, BABABA
 
 language_34:
   language_rule: XX
   description: XX (two copies of the same string)
-  difficulty: Easy_Medium
   example: AA, ABAB, BABA, AABAAB, BBABBABBA
 
 language_35:
   language_rule: XXX
   description: XXX (three copies of the same string)
-  difficulty: Easy_Medium
   example: AAA, ABABAB, BABABA, AABAABAAB, BBABBABBABBA
 
 language_36:
   language_rule: XY
   description: X != Y (2 non-empty strings that are not identical; could include BBBB = B + BBB)
-  difficulty: Easy_Medium
   example: AB, BA, ABB, AAB, BBBA
 
 language_37:  
   language_rule: XXR
   description: X X^R (even-length palindromes)
-  difficulty: Medium
   example: AA, ABBA, BAAB, AABBCCBBAA, ABCCBA
 
 language_38:
   language_rule: XXI
   description: X X^I (where X^I is the inverse of X - replace every A with B and vice-versa)
-  difficulty: Easy_Medium
   example: AB, AABB, ABAABB, BBAA, ABABBA
 
 language_39:
   language_rule: XXRI
   description: X (X^R)^I
-  difficulty: Easy_Medium
   example: AABB, ABBAAB, ABBAABBA, BBAABB, ABBABAAB
 
 language_40:
   language_rule: An2
   description: A^(n^2)
-  difficulty: Hard
   example: A, AAAA, AAAAAAAAA, AAAAAAAAAAAAAAAA, AAAAAAAAAAAAAAAAAAAAAAAAA
 
 language_41:
   language_rule: AnBmCnDm
   description: A^n B^m C^n D^m
-  difficulty: Hard
   example: ABCD, AABCCDD, AABBBCCDDD, AABBBBBCCDDDD, AAABBBBBCCCDDDDD
 
 
 language_42:
   language_rule: AnBmAnBm
   description: A^n B^m A^n B^m
-  difficulty: Hard
   example: ABAB, AABBAABB, AAABBAAABB, AAAABBBAAAABBB, AA, BB
 
 language_43:
   language_rule: AnBmAnBmCCC
   description: A^n B^m A^n B^m CCC
-  difficulty: Hard
   example: ABABCCC, AABBAABBCCC, AAABBBCCC, AAABBBAAABBBCCC, AABBAABBCCC, AAAABBAAAABBCCC
 
 language_44:
   language_rule: AnBmAnBmCnDm
   description: A^n B^m A^n B^m C^n D^m
-  difficulty: Hard
   example: ABABCD, AABBAABBCCDD, AAABBBCCDDD, AAAABBAAAABBCCCCDD
 
 language_45:
   language_rule: A2en
   description: A^(2^n)
-  difficulty: Hard
   example: A, AA, AAAA, AAAAAAAA, AAAAAAAAAAAAAAAA
 
 language_46:
   language_rule: ABnen
   description: (AB)^(n^2)
-  difficulty: Hard
   example: AB, ABABABAB, ABABABABABABABABA, ABABABABABABABABABABABAB, ABABABABABABABABABABABABABABABABABABA
 
 

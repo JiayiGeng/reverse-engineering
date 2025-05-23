@@ -9,8 +9,8 @@ judge_model_name="gpt-4o"
 judge_model_short_name="gpt-4o"
 
 # Blackbox-specific configurations ###########################################
-# blackbox_name="programs"
-blackbox_name="languages"
+blackbox_name="programs"
+# blackbox_name="languages"
 # blackbox_name="ces"
 
 # Experiment-specific configurations #########################################
