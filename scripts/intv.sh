@@ -30,7 +30,7 @@ run_modes="datagen+eval+judge"
 # run_modes="judge"
 use_azure="none"
 
-seeds=0
+seed=0
 
 difficulty="none"
 

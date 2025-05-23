@@ -11,7 +11,17 @@ def get_languages(blackbox, blackbox_name, datapoint, **kwargs):
     return obs_datapoints[:-len("\n")]
 
 def get_programs(blackbox, blackbox_name, datapoint, **kwargs):
-    return "programs"
+    nobs = kwargs.get('nobs', 0)
+    obs_datapoints = ""
+    input_lists = []
+    for _ in range(nobs):
+        input_len = random.randint(1, 10)
+        input_list = [random.randint(0, 100) for _ in range(input_len)]
+        input_lists.append(input_list)
+    for input_list in input_lists:
+        output_list = blackbox.run_program(input_list = input_list, mode = "observation")
+        obs_datapoints += f"Input: {input_list}\nOutput: {output_list}\n"
+    return obs_datapoints[:-len("\n")]
 
 def get_ces(blackbox, blackbox_name, datapoint, **kwargs):
     nobs = kwargs.get('nobs', 0)

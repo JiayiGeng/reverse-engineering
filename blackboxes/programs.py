@@ -117,22 +117,7 @@ class Programs:
             list_code = self.ast_to_python(list_ast)
             expr_code = self.ast_to_python(expr_ast)
             return f"{list_code} + [{expr_code}]"
-        
-        # elif head == 'filteri':
-        #     _, func_ast, list_ast = ast
-        #     func_code = self.ast_to_python(func_ast)
-        #     list_code = self.ast_to_python(list_ast)
-        # #     return f"[x for i, x in enumerate({list_code}) if {func_code}(x, i)]"
-        # elif head == 'filteri':
-        #     _, func_ast, list_ast = ast
-        #     func_code = self.ast_to_python(func_ast)
-        #     list_code = self.ast_to_python(list_ast)
-        #     print(f"func_code: {func_code}")
-        #     print(f"list_code: {list_code}")
-        #     input()
-        #     # 1-based index for DSL's second argument:
-        #     return f"[x for i, x in enumerate({list_code}) if {func_code}(x, i+1)]"
-        
+     
         elif head == 'filteri':
             _, func_ast, list_ast = ast
             func_code = self.ast_to_python(func_ast)
@@ -199,13 +184,6 @@ class Programs:
             count_code = self.ast_to_python(count_ast)
             return f"[{item_code}] * {count_code}"
         
-        # elif head == 'replace':
-        #     # AST: ["replace", idx_ast, expr_ast, list_ast]
-        #     _, idx_ast, expr_ast, list_ast = ast
-        #     idx_code = self.ast_to_python(idx_ast)
-        #     expr_code = self.ast_to_python(expr_ast)
-        #     list_code = self.ast_to_python(list_ast)
-        #     return f"{list_code}[:({idx_code})] + [{expr_code}] + {list_code}[({idx_code})+1:]"
         elif head == 'replace':
             # AST: ["replace", idx_ast, expr_ast, list_ast]
             _, idx_ast, expr_ast, list_ast = ast
