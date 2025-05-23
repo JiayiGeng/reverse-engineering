@@ -1,0 +1,124 @@
+judge_prompt: |-
+  In this task you will be given a ground truth program and pseudocode that you need to evaluate. You will output a score for the quality of the pseudocode based on a set of assessment criteria.
+
+  Below is the ground truth program:
+  {ground_truth}
+
+  Evaluate the quality of the following pseudocode:
+  {response}
+
+  Score the above pseudocode against the ground truth program based on the following criteria (total 10 points):
+    1. Does the provided pseudocode correctly specify the implementation of the ground truth program and manipulate the variables in the same way? Ignore the programming language difference. [5 point]
+    2. Does the provided pseudocode specify the implementation in the most simple and straightforward way without extra unused parts (Occam's Razor principle) [5 point]
+
+  Explain your judgement and return the final score with the type float and following the format below:
+  ```judgement
+  YOUR JUDGEMENT HERE
+  ```
+  ```score
+  YOUR SCORE HERE
+  ```
+
+  Response:
+
+
+observation_descriptive: |-
+  In this task, you are given a ``black box`` and need to determine its inner workings. This black box is a program that takes some inputs and then outputs the executed result.
+
+  Below are past observations have collected from the black box:
+  {observations}
+  Your task is to reverse engineer the program in pseudocode in the following format:
+  ```Pseudocode
+  YOUR PSEUDOCODE
+  ```
+
+  Response:
+
+
+functional_explicit_eval: |-
+  In this task, you are given a ``black box`` of which you need to unveil the inner workings by providing the Correct Python program that can passes all tests.
+  
+  Below are some past observations from the black box:
+  {observations}
+
+  Your need to write the program as a function that takes one single input (str) and returns the executed result.
+  
+  Write the program as follows:
+  ```python
+  YOUR CODE HERE
+  ```
+
+  Response:
+
+
+functional_implicit_eval: |-
+  In this task, you are given a ``black box`` and need to determine its inner workings. This black box is a program that takes some inputs and then outputs the executed result.
+
+  Below are some past observations from the black box:
+  {observations}
+
+  You need to reverse engineer the rule underlying this program and provide the correct output for the given input.
+
+  Test cases:
+  {test_cases}
+
+  Output your response in the following format:
+  ```output
+  YOUR RESPONSE HERE
+  ```
+  
+  Response:
+
+
+intervention_prompt: |-
+  In this task, you are given a ``black box`` and need to determine its inner workings. This black box is a program that takes some inputs and then outputs the executed result. You will have a series of turns to interact with the black box. On each turn, you can either gather more information or test your hypothesis. To gather more information, you need to come up with an input, use it to query the black box, and obtain a result. To test your hypothesis you generate an input and a predicted result. All the information gathered across all the turns is used to reverse engineer the black box. Throughout the process, you can decide whether the gathered information is sufficient to correctly identify the workings of the black box, in which case you can stop. Otherwise you need to continue the interaction.
+  Concretely, you can perform one of the following actions at each turn: 1) query, 2) test, or 3) stop. Below is the format for each action.
+
+  Query:
+  ```query
+  List[int]
+  ```
+
+  Test:
+  ```test
+  List[int]
+  List[int]
+  ```
+
+  Stop:
+  ```stop
+  ```
+  Note that you should only perform one of the actions above with one input example in your response. 
+
+  Below are your past observations of the black box:
+  {observations}
+  Response:
+
+
+reasoning_intervention_prompt: |-
+  In this task, you are given a ``black box`` and need to determine its inner workings. This black box is a program that takes some inputs and then outputs the executed result. You will have a series of turns to interact with the black box. On each turn, you can either gather more information or test your hypothesis. To gather more information, you need to come up with an input, use it to query the black box, and obtain a result. To test your hypothesis you generate an input and a predicted result. All the information gathered across all the turns is used to reverse engineer the black box. Throughout the process, you can decide whether the gathered information is sufficient to correctly identify the workings of the black box, in which case you can stop. Otherwise you need to continue the interaction.
+  Concretely, you can perform one of the following actions at each turn: 1) query, 2) test, or 3) stop. 
+
+  Provide a *thorough reasoning* before performing the action. Leverage the past observations to design your next query. Below is the format for each action.
+
+  Query:
+  ```query
+  List[int]
+  ```
+
+  Test:
+  ```test
+  List[int]
+  List[int]
+  ```
+
+  Stop:
+  ```stop
+  ```
+  Note that you should only perform one of the actions above with one input example in your response. 
+
+  Below are your past observations of the black box:
+  {observations}
+  Response:
+
+

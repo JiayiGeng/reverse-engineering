@@ -1,0 +1,223 @@
+intervention_prompt: |-
+  In this task, you are given a ``black box`` and need to reverse engineer its inner workings by interacting with it.
+  
+  This black box is a CES utility function:
+  U(\\mathbf{{x}}) = \\left(\\sum_{{i=1}}^n a_i \\cdot x_i^{{\\text{{rho}}}}\\right)^{{1/\\text{{rho}}}}
+
+  Here, the black box is determined by a set of parameters which are unknown to you:
+  1. a_i: float rounded to the first decimal point and sum up to 1. (Note that there will be multiple a_i's in each black box.)
+  2. rho: float rounded to the first decimal point.
+
+  The black box works in the following way:
+  1. The black box takes two lists of integers (baskets) as input. Each integer at index i represents represents the quantity (i.e., x_i) associated with the weight a_i.
+  2. The output from the black box is the preference between the two baskets based on the utility function above (the larger one is preferred).
+  
+  Your goal is to reverse engineer the CES function by determining the internal parameters a_i and rho, where `a_i` is the weight of the i-th good and `rho` is the coefficient of the CES function.
+  
+  You will have a series of turns to interact with the utility model. On each turn, you can either gather more information or test your hypothesis. To gather more information, you need to come up with a query consisting of two baskets and obtain a result indicating which basket is chosen by the black box. To test your hypothesis you generate a pair of baskets with a predicted preference result from black box (either "basket1" or "basket2"). All the information gathered across all the turns is used to reverse engineer the black box. Throughout the process, you can decide whether the gathered information is sufficient to correctly identify the workings of the black box, in which case you can stop. Otherwise you need to continue the interaction.
+  Concretely, you can perform one of the following actions at each turn: 1) query, 2) test, or 3) stop. Below is the format for each action.
+
+  Query:
+  ```query
+  List[int]
+  List[int]
+  ```
+
+  Test:
+  ```test
+  List[int]
+  List[int]
+  str
+  ```
+
+  Stop:
+  ```stop
+  ```
+
+  Note that you should *only perform one of the actions above* with one input example in your response. 
+
+  Below is your past observations of the black box:
+  {observations}
+
+  Response:
+
+
+observation_descriptive: |-
+  In this task, you are given a ``black box`` and need to reverse engineer its inner workings by interacting with it.
+  
+  This black box is a CES utility function:
+  ```Func
+  U(\\mathbf{{x}}) = \\left(\\sum_{{i=1}}^n a_i \\cdot x_i^{{\\text{{rho}}}}\\right)^{{1/\\text{{rho}}}}
+  ```
+
+  Here, the black box is determined by a set of parameters which are unknown to you:
+  1. a_i: float rounded to the first decimal point and sum up to 1. (Note that there will be multiple a_i's in each black box.)
+  2. rho: float rounded to the first decimal point.
+  Where `a_i` is the weight of the i-th good and `rho` is the coefficient of the CES function.
+
+  The black box works in the following way:
+  1. The black box takes two lists of integers (baskets) as input. Each integer at index i represents the quantity (i.e., x_i) associated with the weight a_i.
+  2. The output from the black box is the preference between the two baskets based on the utility function above (the larger one is preferred).
+
+  Below are past observations have collected from the black box:
+  {observations}
+
+  Your goal is to reverse engineer the CES function by determining the *most precise* internal parameters a_i and the *optimal* rho, ensuring that the reverse engineered utility function is satisfied by the past observations.
+
+
+  Write the best fit utility function in the following format (rho and a_i filled with your estimation):
+  ```Func
+  YOUR FUNCTION
+  ```
+
+  Response:
+
+
+functional_explicit_eval: |-
+  In this task, you are given a ``black box`` and need to reverse engineer its inner workings by interacting with it.
+  
+  This black box is a CES utility function:
+  U(\\mathbf{{x}}) = \\left(\\sum_{{i=1}}^n a_i \\cdot x_i^{{\\text{{rho}}}}\\right)^{{1/\\text{{rho}}}}
+
+  Here, the black box is determined by a set of parameters which are unknown to you:
+  1. a_i: float rounded to the first decimal point and sum up to 1. (Note that there will be multiple a_i's in each black box.)
+  2. rho: float rounded to the first decimal point.
+  Where `a_i` is the weight of the i-th good and `rho` is the coefficient of the CES function.
+  The black box works in the following way:
+  1. The black box takes two lists of integers (baskets) as input. Each integer at index i represents represents the quantity (i.e., x_i) associated with the weight a_i.
+  2. The output from the black box is the preference between the two baskets based on the utility function above (the larger one is preferred).
+  
+  Below are past observations you have collected from the black box:
+  {observations}
+
+  Your goal is to reverse engineer the CES function by determining the *most precise* internal parameters a_i and the *optimal* rho, ensuring that the reverse engineered utility function is satisfied by the past observations.
+
+  Your task is to write a Python program based on your predicted utility function to select the preferred basket from given two baskets with the highest utility value.
+
+  INPUT FORMAT:
+  - Two baskets (basket1: List[int] and basket2: List[int]) each represents a list of quantities of goods. Each index i in the list corresponds to x_i in the CES equation.
+  OUTPUT FORMAT:
+  - Return "basket1" if the first basket is chosen by the black box, and "basket2" if the second basket is chosen.
+
+  Your need to write the program as a function that takes two baskets as input and returns the preference of the basket corresponds to the utility value used by the black box. Write the program as follows:
+  ```python
+  YOUR CODE HERE
+  ```
+
+  Response:
+
+
+functional_implicit_eval: |-
+  In this task, you are given a ``black box`` and need to reverse engineer its inner workings by interacting with it.
+  
+  This black box is a CES utility function:
+  U(\\mathbf{{x}}) = \\left(\\sum_{{i=1}}^n a_i \\cdot x_i^{{\\text{{rho}}}}\\right)^{{1/\\text{{rho}}}}
+
+  Here, the black box is determined by a set of parameters which are unknown to you:
+  1. a_i: float rounded to the first decimal point and sum up to 1. (Note that there will be multiple a_i's in each black box.)
+  2. rho: float rounded to the first decimal point.
+  Where `a_i` is the weight of the i-th good and `rho` is the coefficient of the CES function.
+
+  The black box works in the following way:
+  1. The black box takes two lists of integers (baskets) as input. Each integer at index i represents represents the quantity (i.e., x_i) associated with the weight a_i.
+  2. The output from the black box is the preference between the two baskets based on the utility function above (the larger one is preferred).
+  
+  Your goal is to reverse engineer the CES function by determining the most *precise* internal parameters a_i and the *optimal* rho, ensuring that the utility function is as accurate as possible to satisfy your past observations below.
+  
+  Below are past observations you have collected from the black box:
+  {observations}
+
+  Based on your predicted utility function, you need to select the preferred basket from given two baskets with the highest utility value.
+
+  Two baskets:
+  {test_cases}
+
+  Output your response in the following format:
+  ```output
+  YOUR RESPONSE HERE
+  ```
+
+  Response:
+
+
+judge_prompt: |-
+  In this task, you are provided with a ground truth CES utility function and a CES utility function predicted by a model. 
+  
+  Your task is to evaluate the quality of the predicted utility function based on a set of assessment criteria and output a score.
+
+  The ground truth utility takes this form:
+  U(\\mathbf{{x}}) = \\left(\\sum_{{i=1}}^n a_i \\cdot x_i^{{\\text{{rho}}}}\\right)^{{1/\\text{{rho}}}}
+  
+  The utility depends on the following parameters:
+  1. a_i: float rounded to the first decimal point and should sum up to 1. (Note that there will be multiple a_i's.)
+  2. rho: float rounded to the first decimal point.
+
+  Below is the information about the ground truth utility function: 
+  {ground_truth}
+
+  Evaluate the quality of the following predicted the parameters of the utility function: 
+  {response}
+
+  Score the predicted utility function against the ground truth using the following criteria (total 10 points):
+  1. Is the predicted utility function has a correct rho? [2 points]
+  2. Compare the predicted utility function to the ground truth, how many a_i's are correct (order matters)? This will give us an accuracy percentage. The score for this bullet should be the accuracy percentage times the total allocated 6 points [6 points]
+  3. In the predicted utility function, do the unknown parameters a_i sum up to 1 and do the number of a_i's match the number of goods? [1 point]
+  4. Does the predicted utility function express the function in a simple and straightforward way without any unnecessary elements (adhering to the Occam's Razor principle)? [1 point]
+
+  Explain your judgement and return the final score with the type float and following the format below:
+  ```judgement
+  YOUR JUDGEMENT HERE
+  ```
+
+  ```score
+  YOUR SCORE HERE
+  ```
+
+  Response:
+
+reasoning_intervention_prompt: |-
+  In this task, you are given a ``black box`` and need to reverse engineer its inner workings by interacting with it.
+  
+  This black box is a CES utility function:
+  U(\\mathbf{{x}}) = \\left(\\sum_{{i=1}}^n a_i \\cdot x_i^{{\\text{{rho}}}}\\right)^{{1/\\text{{rho}}}}
+
+  Here, the black box is determined by a set of parameters which are unknown to you:
+  1. a_i: float rounded to the first decimal point and sum up to 1. (Note that there will be multiple a_i's in each black box.)
+  2. rho: float rounded to the first decimal point.
+  Where `a_i` is the weight of the i-th good and `rho` is the coefficient of the CES function.
+
+  The black box works in the following way:
+  1. The black box takes two lists of integers (baskets) as input. Each integer at index i represents represents the quantity (i.e., x_i) associated with the weight a_i.
+  2. The output from the black box is the preference between the two baskets based on the utility function above (the larger one is preferred).
+  
+  Your goal is to reverse engineer the CES function by determining the most *precise* internal parameters a_i and the *optimal* rho, ensuring that the utility function is as accurate as possible to satisfy your observations from the black box.
+
+  You will have a series of turns to interact with the black box. On each turn, you can either gather more information or test your hypothesis. To gather more information, you need to come up with a query consisting of two baskets and obtain a result indicating which basket is chosen by the black box. To test your hypothesis you generate a pair of baskets with a predicted preference result from black box (either "basket1" or "basket2"). All the information gathered across all the turns is used to reverse engineer the black box. Throughout the process, you can decide whether the gathered information is sufficient to correctly identify the workings of the black box, in which case you can stop. Otherwise you need to continue the interaction.
+  Concretely, you can perform one of the following actions at each turn: 1) query, 2) test, or 3) stop.
+
+  Provide a *thorough reasoning* before performing the action. Leverage the past observations to design your next query and make your hypothesis as accurate as possible. Below is the format for each action.
+
+  Query:
+  ```query
+  List[int]
+  List[int]
+  ```
+
+  Test:
+  ```test
+  List[int]
+  List[int]
+  str
+  ```
+
+  Stop:
+  ```stop
+  ```
+
+  Note that you should *only perform one of the actions above* with one input example in your response. 
+
+  Below is your past observations of the black box:
+  {observations}
+
+  Response:
+

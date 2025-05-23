@@ -1,0 +1,700 @@
+ces_1:
+  rho: 0.6
+  alphas:
+  - 0.7
+  - 0.3
+  names:
+  - plum
+  - lime
+  quantity_of_goods: 2
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_2:
+  rho: 0.2
+  alphas:
+  - 0.2
+  - 0.8
+  names:
+  - grape
+  - orange
+  quantity_of_goods: 2
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_3:
+  rho: 0.1
+  alphas:
+  - 0.1
+  - 0.9
+  names:
+  - apple
+  - melon
+  quantity_of_goods: 2
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_4:
+  rho: 1.0
+  alphas:
+  - 0.6
+  - 0.4
+  names:
+  - plum
+  - orange
+  quantity_of_goods: 2
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_5:
+  rho: 0.9
+  alphas:
+  - 0.5
+  - 0.5
+  names:
+  - plum
+  - kiwi
+  quantity_of_goods: 2
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_6:
+  rho: 0.5
+  alphas:
+  - 0.6
+  - 0.4
+  names:
+  - kiwi
+  - orange
+  quantity_of_goods: 2
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_7:
+  rho: 0.2
+  alphas:
+  - 0.6
+  - 0.4
+  names:
+  - apple
+  - lemon
+  quantity_of_goods: 2
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_8:
+  rho: 0.6
+  alphas:
+  - 0.8
+  - 0.2
+  names:
+  - orange
+  - pear
+  quantity_of_goods: 2
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_9:
+  rho: 0.5
+  alphas:
+  - 0.6
+  - 0.4
+  names:
+  - orange
+  - lemon
+  quantity_of_goods: 2
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_10:
+  rho: 0.2
+  alphas:
+  - 0.9
+  - 0.1
+  names:
+  - plum
+  - kiwi
+  quantity_of_goods: 2
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_11:
+  rho: 0.2
+  alphas:
+  - 0.4
+  - 0.3
+  - 0.3
+  names:
+  - lime
+  - melon
+  - grape
+  quantity_of_goods: 3
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_12:
+  rho: 0.5
+  alphas:
+  - 0.6
+  - 0.1
+  - 0.3
+  names:
+  - kiwi
+  - berry
+  - melon
+  quantity_of_goods: 3
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_13:
+  rho: 0.5
+  alphas:
+  - 0.1
+  - 0.7
+  - 0.2
+  names:
+  - peach
+  - cherry
+  - melon
+  quantity_of_goods: 3
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_14:
+  rho: 0.9
+  alphas:
+  - 0.2
+  - 0.3
+  - 0.5
+  names:
+  - plum
+  - lime
+  - kiwi
+  quantity_of_goods: 3
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_15:
+  rho: 0.4
+  alphas:
+  - 0.1
+  - 0.6
+  - 0.3
+  names:
+  - banana
+  - grape
+  - orange
+  quantity_of_goods: 3
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_16:
+  rho: 0.7
+  alphas:
+  - 0.5
+  - 0.4
+  - 0.1
+  names:
+  - banana
+  - pear
+  - melon
+  quantity_of_goods: 3
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_17:
+  rho: 0.5
+  alphas:
+  - 0.3
+  - 0.6
+  - 0.1
+  names:
+  - melon
+  - peach
+  - kiwi
+  quantity_of_goods: 3
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_18:
+  rho: 0.6
+  alphas:
+  - 0.1
+  - 0.6
+  - 0.3
+  names:
+  - lemon
+  - plum
+  - lime
+  quantity_of_goods: 3
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_19:
+  rho: 0.4
+  alphas:
+  - 0.7
+  - 0.1
+  - 0.2
+  names:
+  - lemon
+  - banana
+  - mango
+  quantity_of_goods: 3
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_20:
+  rho: 0.5
+  alphas:
+  - 0.4
+  - 0.4
+  - 0.2
+  names:
+  - mango
+  - orange
+  - plum
+  quantity_of_goods: 3
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_21:
+  rho: 0.3
+  alphas:
+  - 0.3
+  - 0.3
+  - 0.1
+  - 0.3
+  names:
+  - kiwi
+  - melon
+  - berry
+  - plum
+  quantity_of_goods: 4
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_22:
+  rho: 0.4
+  alphas:
+  - 0.1
+  - 0.1
+  - 0.4
+  - 0.4
+  names:
+  - grape
+  - peach
+  - plum
+  - lemon
+  quantity_of_goods: 4
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_23:
+  rho: 0.8
+  alphas:
+  - 0.1
+  - 0.4
+  - 0.3
+  - 0.2
+  names:
+  - orange
+  - berry
+  - kiwi
+  - cherry
+  quantity_of_goods: 4
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_24:
+  rho: 0.1
+  alphas:
+  - 0.1
+  - 0.7
+  - 0.1
+  - 0.1
+  names:
+  - melon
+  - plum
+  - banana
+  - grape
+  quantity_of_goods: 4
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_25:
+  rho: 0.5
+  alphas:
+  - 0.1
+  - 0.6
+  - 0.2
+  - 0.1
+  names:
+  - kiwi
+  - banana
+  - grape
+  - lemon
+  quantity_of_goods: 4
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_26:
+  rho: 0.6
+  alphas:
+  - 0.2
+  - 0.3
+  - 0.3
+  - 0.2
+  names:
+  - apple
+  - orange
+  - berry
+  - lime
+  quantity_of_goods: 4
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_27:
+  rho: 0.2
+  alphas:
+  - 0.2
+  - 0.1
+  - 0.3
+  - 0.4
+  names:
+  - berry
+  - kiwi
+  - banana
+  - pear
+  quantity_of_goods: 4
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_28:
+  rho: 0.9
+  alphas:
+  - 0.5
+  - 0.1
+  - 0.2
+  - 0.2
+  names:
+  - pear
+  - apple
+  - kiwi
+  - banana
+  quantity_of_goods: 4
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_29:
+  rho: 0.2
+  alphas:
+  - 0.3
+  - 0.2
+  - 0.4
+  - 0.1
+  names:
+  - plum
+  - lime
+  - kiwi
+  - mango
+  quantity_of_goods: 4
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_30:
+  rho: 0.2
+  alphas:
+  - 0.1
+  - 0.5
+  - 0.2
+  - 0.2
+  names:
+  - melon
+  - berry
+  - kiwi
+  - mango
+  quantity_of_goods: 4
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_31:
+  rho: 0.4
+  alphas:
+  - 0.2
+  - 0.2
+  - 0.3
+  - 0.2
+  - 0.1
+  names:
+  - plum
+  - pear
+  - banana
+  - orange
+  - cherry
+  quantity_of_goods: 5
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_32:
+  rho: 0.5
+  alphas:
+  - 0.2
+  - 0.2
+  - 0.1
+  - 0.4
+  - 0.1
+  names:
+  - plum
+  - grape
+  - cherry
+  - kiwi
+  - banana
+  quantity_of_goods: 5
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_33:
+  rho: 0.7
+  alphas:
+  - 0.2
+  - 0.2
+  - 0.4
+  - 0.1
+  - 0.1
+  names:
+  - cherry
+  - melon
+  - mango
+  - pear
+  - orange
+  quantity_of_goods: 5
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_34:
+  rho: 0.6
+  alphas:
+  - 0.1
+  - 0.2
+  - 0.1
+  - 0.4
+  - 0.2
+  names:
+  - kiwi
+  - lime
+  - apple
+  - plum
+  - berry
+  quantity_of_goods: 5
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_35:
+  rho: 0.9
+  alphas:
+  - 0.1
+  - 0.1
+  - 0.2
+  - 0.5
+  - 0.1
+  names:
+  - kiwi
+  - berry
+  - banana
+  - peach
+  - cherry
+  quantity_of_goods: 5
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_36:
+  rho: 0.2
+  alphas:
+  - 0.1
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.3
+  names:
+  - orange
+  - peach
+  - melon
+  - kiwi
+  - grape
+  quantity_of_goods: 5
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_37:
+  rho: 0.5
+  alphas:
+  - 0.1
+  - 0.1
+  - 0.3
+  - 0.1
+  - 0.4
+  names:
+  - lemon
+  - lime
+  - banana
+  - pear
+  - melon
+  quantity_of_goods: 5
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_38:
+  rho: 0.8
+  alphas:
+  - 0.3
+  - 0.1
+  - 0.4
+  - 0.1
+  - 0.1
+  names:
+  - peach
+  - cherry
+  - berry
+  - plum
+  - apple
+  quantity_of_goods: 5
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_39:
+  rho: 0.3
+  alphas:
+  - 0.3
+  - 0.1
+  - 0.2
+  - 0.1
+  - 0.3
+  names:
+  - cherry
+  - peach
+  - mango
+  - pear
+  - melon
+  quantity_of_goods: 5
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_40:
+  rho: 0.3
+  alphas:
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.6
+  - 0.1
+  names:
+  - apple
+  - mango
+  - kiwi
+  - melon
+  - lemon
+  quantity_of_goods: 5
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_41:
+  rho: 0.7
+  alphas:
+  - 0.1
+  - 0.1
+  - 0.3
+  - 0.1
+  - 0.2
+  - 0.2
+  names:
+  - berry
+  - cherry
+  - apple
+  - pear
+  - lemon
+  - mango
+  quantity_of_goods: 6
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_42:
+  rho: 0.8
+  alphas:
+  - 0.1
+  - 0.1
+  - 0.3
+  - 0.3
+  - 0.1
+  - 0.1
+  names:
+  - apple
+  - berry
+  - banana
+  - kiwi
+  - melon
+  - cherry
+  quantity_of_goods: 6
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_43:
+  rho: 0.2
+  alphas:
+  - 0.1
+  - 0.1
+  - 0.2
+  - 0.1
+  - 0.4
+  - 0.1
+  names:
+  - grape
+  - berry
+  - pear
+  - melon
+  - kiwi
+  - cherry
+  quantity_of_goods: 6
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_44:
+  rho: 0.4
+  alphas:
+  - 0.1
+  - 0.1
+  - 0.2
+  - 0.1
+  - 0.2
+  - 0.3
+  names:
+  - apple
+  - peach
+  - banana
+  - melon
+  - plum
+  - lemon
+  quantity_of_goods: 6
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_45:
+  rho: 1.0
+  alphas:
+  - 0.2
+  - 0.1
+  - 0.2
+  - 0.1
+  - 0.1
+  - 0.3
+  names:
+  - banana
+  - lemon
+  - apple
+  - cherry
+  - lime
+  - orange
+  quantity_of_goods: 6
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_46:
+  rho: 0.6
+  alphas:
+  - 0.3
+  - 0.1
+  - 0.3
+  - 0.1
+  - 0.1
+  - 0.1
+  names:
+  - pear
+  - lemon
+  - mango
+  - lime
+  - banana
+  - plum
+  quantity_of_goods: 6
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_47:
+  rho: 0.2
+  alphas:
+  - 0.1
+  - 0.1
+  - 0.3
+  - 0.2
+  - 0.1
+  - 0.2
+  names:
+  - lime
+  - grape
+  - peach
+  - mango
+  - melon
+  - banana
+  quantity_of_goods: 6
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_48:
+  rho: 0.9
+  alphas:
+  - 0.2
+  - 0.1
+  - 0.1
+  - 0.2
+  - 0.2
+  - 0.2
+  names:
+  - cherry
+  - plum
+  - berry
+  - pear
+  - banana
+  - orange
+  quantity_of_goods: 6
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_49:
+  rho: 0.8
+  alphas:
+  - 0.1
+  - 0.2
+  - 0.1
+  - 0.2
+  - 0.3
+  - 0.1
+  names:
+  - peach
+  - banana
+  - berry
+  - orange
+  - mango
+  - pear
+  quantity_of_goods: 6
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
+ces_50:
+  rho: 0.1
+  alphas:
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.4
+  - 0.2
+  names:
+  - orange
+  - lime
+  - berry
+  - cherry
+  - banana
+  - peach
+  quantity_of_goods: 6
+  utility_function: U(\mathbf{x}) = \left(\sum_{i=1}^n a_i \cdot x_i^{\rho}\right)^{1/\rho}
