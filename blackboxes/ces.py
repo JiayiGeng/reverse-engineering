@@ -41,9 +41,6 @@ class CES:
     
     def run_ces(self, basket_quantity1 = "none", basket_quantity2 = "none", estimate_preference = "none", mode = "observation"):
         if mode == "observation":
-            # randomly sample two lists of quantity
-            # basket_quantity1 = random.sample(range(1, 100), self.quantity_of_goods)
-            # basket_quantity2 = random.sample(range(1, 100), self.quantity_of_goods)
             basket_quantity1 = [random.uniform(1, 100) for _ in range(self.quantity_of_goods)]
             basket_quantity2 = [random.uniform(1, 100) for _ in range(self.quantity_of_goods)]
             basket_utility1 = self.compute_utility(self.rho, basket_quantity1)
@@ -98,8 +95,6 @@ class CES:
 
 if __name__ == "__main__":
     ces = CES()
-    quantity = [2, 10]
-    rho = 0.5
     basket_quantity1 = [2, 10]
     basket_quantity2 = [1, 10]
     estimate_preference = "basket1"

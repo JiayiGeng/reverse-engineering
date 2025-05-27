@@ -24,18 +24,18 @@ from blackboxes.programs import Programs
 from blackboxes.ces import CES
 from evaluation import eval_desc
 
+
 BLACKBOX_NAME_TO_CLASS = {
     "languages": Languages,
     "ces": CES,
     "programs": Programs,
 }
-
 SAVE_DIR = "results"
+
 
 class ExpLogger:
     def __init__(self, save_dir):
         self.save_dir = save_dir
-
         self.blackbox_instance_name = '{blackbox_instance_name}'
         self.save_obs_path = os.path.join(self.save_dir, self.blackbox_instance_name, 'obs.json')
         self.save_desc_results_path = os.path.join(self.save_dir, self.blackbox_instance_name, 'desc_results.json')

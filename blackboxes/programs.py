@@ -50,11 +50,9 @@ class Programs:
     def ast_to_python(self, ast):
         if isinstance(ast, str):
             if ast == 'drop':
-                # return "lambda x: x[1:]"
                 return "(lambda n, x: x[n:])"
             
             if ast == 'droplast':
-                # return "lambda x: x[:-1]"
                 return "(lambda n, x: x[:-n])"
             
             if ast == '$0':
@@ -382,7 +380,7 @@ class Programs:
             try:
                 output = self.compile_dsl(dsl_expression)(input_list)
                 # check if output is function
-                if callable(output): # Dealing with the drop and droplast functions
+                if callable(output): 
                     output = output(input_list)
                 return output
             except:
@@ -440,8 +438,6 @@ def swap(lst, i, j):
     return new_lst
 
 if __name__ == "__main__":
-    print(f"tests")
-  
     program = Programs(program_name="c095")
     input_list = [1, 2, 3, 4, 5]
     # Test intervention mode with output_list

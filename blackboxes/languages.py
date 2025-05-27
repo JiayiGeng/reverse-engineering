@@ -302,54 +302,19 @@ class Languages:
         return query.count('A') % 2 == 0 and set(query).issubset({'A', 'B'})
 
     def aab_b(self):
-        """
-        Randomly generates a string that matches the "aABb" language rule: a Σ+ b,
-        where Σ is {A, B}.
-        
-        Returns:
-            str: A string starting with 'a', followed by one or more 'A' or 'B', and ending with 'b'.
-        """
         middle_length = random.randint(1, 10)
         middle = ''.join(random.choice(['A', 'B']) for _ in range(middle_length))
         return f'a{middle}b'
 
     def test_aab_b(self, query):
-        """
-        Tests whether the given string matches the "aABb" language rule: a Σ+ b.
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string starts with 'a', ends with 'b', and has at least one 'A' or 'B' in between. False otherwise.
-        """
         pattern = r'^a[AB]+b$'
         return re.fullmatch(pattern, query) is not None
 
     def an_bn(self, max_n=10):
-        """
-        Randomly generates a string that matches the "AnBn" language rule: A^n B^n.
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-        
-        Returns:
-            str: A string with n 'A's followed by n 'B's.
-        """
         n = random.randint(0, max_n)
         return 'A' * n + 'B' * n
 
     def test_an_bn(self, query):
-        """
-        Tests whether the given string matches the "AnBn" language rule: A^n B^n.
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n 'A's followed by n 'B's, False otherwise.
-        """
-        pattern = r'^(A+)B+\1$'
         match = re.fullmatch(r'^(A*)B*\1$', query)
         if match:
             num_a = len(match.group(1))
@@ -358,15 +323,6 @@ class Languages:
         return False
 
     def dyck(self, max_pairs=10):
-        """
-        Randomly generates a balanced sequence of parentheses (Dyck language).
-        
-        Args:
-            max_pairs (int): The maximum number of parenthesis pairs. Default is 10.
-        
-        Returns:
-            str: A balanced sequence of '(' and ')'.
-        """
         def generate(n):
             if n == 0:
                 return ''
@@ -381,15 +337,6 @@ class Languages:
         return generate(num_pairs)
 
     def test_dyck(self, query):
-        """
-        Tests whether the given string is a balanced sequence of parentheses (Dyck language).
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the parentheses are balanced, False otherwise.
-        """
         stack = []
         for char in query:
             if char == '(':
@@ -404,28 +351,10 @@ class Languages:
         return not stack
 
     def an_b2n(self, max_n=10):
-        """
-        Randomly generates a string that matches the "AnB2n" language rule: A^n B^(2n).
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-        
-        Returns:
-            str: A string with n 'A's followed by 2n 'B's.
-        """
         n = random.randint(0, max_n)
         return 'A' * n + 'B' * (2 * n)
 
     def test_an_b2n(self, query):
-        """
-        Tests whether the given string matches the "AnB2n" language rule: A^n B^(2n).
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n 'A's followed by 2n 'B's, False otherwise.
-        """
         match = re.fullmatch(r'^(A*)B*$', query)
         if match:
             n = len(match.group(1))
@@ -435,28 +364,10 @@ class Languages:
         return False
 
     def an_cbn(self, max_n=10):
-        """
-        Randomly generates a string that matches the "AnCBn" language rule: A^n C B^n.
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-        
-        Returns:
-            str: A string with n 'A's, followed by 'C', followed by n 'B's.
-        """
         n = random.randint(0, max_n)
         return 'A' * n + 'C' + 'B' * n
 
     def test_an_cbn(self, query):
-        """
-        Tests whether the given string matches the "AnCBn" language rule: A^n C B^n.
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n 'A's, followed by 'C', followed by n 'B's, False otherwise.
-        """
         pattern = r'^(A*)C(B*)$'
         match = re.fullmatch(pattern, query)
         if match:
@@ -466,29 +377,10 @@ class Languages:
         return False
 
     def an_abn(self, max_n=10):
-        """
-        Randomly generates a string that matches the "AnABn" language rule: A^n (AB)^n.
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-        
-        Returns:
-            str: A string with n 'A's followed by n repetitions of "AB".
-        """
         n = random.randint(0, max_n)
         return 'A' * n + 'AB' * n
 
     def test_an_abn(self, query):
-        """
-        Tests whether the given string matches the "AnABn" language rule: A^n (AB)^n.
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n 'A's followed by n "AB"s, False otherwise.
-        """
-        pattern = r'^(A*)(AB*)$'
         match = re.fullmatch(r'^(A*)(AB*)$', query)
         if match:
             n_a = len(match.group(1))
@@ -497,57 +389,20 @@ class Languages:
         return False
 
     def abn_aban(self, max_n=10):
-        """
-        Randomly generates a string that matches the "ABnABAn" language rule: (AB)^n (ABA)^n.
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-        
-        Returns:
-            str: A string with n repetitions of "AB" followed by n repetitions of "ABA".
-        """
         n = random.randint(0, max_n)
         return 'AB' * n + 'ABA' * n
 
     def test_abn_aban(self, query):
-        """
-        Tests whether the given string matches the "ABnABAn" language rule: (AB)^n (ABA)^n.
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n "AB"s followed by n "ABA"s, False otherwise.
-        """
         n = query.count('AB')
         expected = 'AB' * n + 'ABA' * n
         return query == expected
 
     def an_bm_cn(self, max_n=10, max_m=10):
-        """
-        Randomly generates a string that matches the "AnBmCn" language rule: A^n B^m C^n
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-            max_m (int): The maximum value of m. Default is 10.
-        
-        Returns:
-            str: A string with n 'A's, m 'B's, and n 'C's.
-        """
         n = random.randint(0, max_n)
         m = random.randint(0, max_m)
         return 'A' * n + 'B' * m + 'C' * n
 
     def test_an_bm_cn(self, query):
-        """
-        Tests whether the given string matches the "AnBmCn" language rule: A^n B^m C^n
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n 'A's followed by m 'B's and then n 'C's, False otherwise.
-        """
         pattern = r'^(A*)(B*)(C*)$'
         match = re.fullmatch(pattern, query)
         if match:
@@ -558,30 +413,11 @@ class Languages:
         return False
 
     def an_bm_a2n(self, max_n=10, max_m=10):
-        """
-        Randomly generates a string that matches the "AnBmA2n" language rule: A^n B^m A^(2n)
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-            max_m (int): The maximum value of m. Default is 10.
-        
-        Returns:
-            str: A string with n 'A's, m 'B's, and 2n 'A's.
-        """
         n = random.randint(0, max_n)
         m = random.randint(0, max_m)
         return 'A' * n + 'B' * m + 'A' * (2 * n)
 
     def test_an_bm_a2n(self, query):
-        """
-        Tests whether the given string matches the "AnBmA2n" language rule: A^n B^m A^(2n)
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n 'A's followed by m 'B's and then 2n 'A's, False otherwise.
-        """
         pattern = r'^(A*)(B*)(A*)$'
         match = re.fullmatch(pattern, query)
         if match:
@@ -592,28 +428,10 @@ class Languages:
         return False
 
     def an_bn_c2n(self, max_n=10):
-        """
-        Randomly generates a string that matches the "AnBnC2n" language rule: A^n B^n C^(2n)
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-        
-        Returns:
-            str: A string with n 'A's, n 'B's, and 2n 'C's.
-        """
         n = random.randint(0, max_n)
         return 'A' * n + 'B' * n + 'C' * (2 * n)
 
     def test_an_bn_c2n(self, query):
-        """
-        Tests whether the given string matches the "AnBnC2n" language rule: A^n B^n C^(2n)
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n 'A's followed by n 'B's and then 2n 'C's, False otherwise.
-        """
         pattern = r'^(A*)(B*)(C*)$'
         match = re.fullmatch(pattern, query)
         if match:
@@ -624,30 +442,11 @@ class Languages:
         return False
 
     def an_bm_cm(self, max_n=10, max_m=10):
-        """
-        Randomly generates a string that matches the "AnBmCm" language rule: A^n B^m C^m
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-            max_m (int): The maximum value of m. Default is 10.
-        
-        Returns:
-            str: A string with n 'A's, m 'B's, and m 'C's.
-        """
         n = random.randint(0, max_n)
         m = random.randint(0, max_m)
         return 'A' * n + 'B' * m + 'C' * m
 
     def test_an_bm_cm(self, query):
-        """
-        Tests whether the given string matches the "AnBmCm" language rule: A^n B^m C^m
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n 'A's followed by m 'B's and then m 'C's, False otherwise.
-        """
         pattern = r'^(A*)(B*)(C*)$'
         match = re.fullmatch(pattern, query)
         if match:
@@ -658,30 +457,11 @@ class Languages:
         return False
 
     def an_bm_cnpm(self, max_n=10, max_m=10):
-        """
-        Randomly generates a string that matches the "AnBmCnpm" language rule: A^n B^m C^(n+m)
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-            max_m (int): The maximum value of m. Default is 10.
-        
-        Returns:
-            str: A string with n 'A's, m 'B's, and (n + m) 'C's.
-        """
         n = random.randint(0, max_n)
         m = random.randint(0, max_m)
         return 'A' * n + 'B' * m + 'C' * (n + m)
 
     def test_an_bm_cnpm(self, query):
-        """
-        Tests whether the given string matches the "AnBmCnpm" language rule: A^n B^m C^(n+m)
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n 'A's, m 'B's, and (n + m) 'C's, False otherwise.
-        """
         pattern = r'^(A*)(B*)(C*)$'
         match = re.fullmatch(pattern, query)
         if match:
@@ -692,30 +472,11 @@ class Languages:
         return False
 
     def an_bm_cnm(self, max_n=10, max_m=10):
-        """
-        Randomly generates a string that matches the "AnBmCnm" language rule: A^n B^m C^(n*m)
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-            max_m (int): The maximum value of m. Default is 10.
-        
-        Returns:
-            str: A string with n 'A's, m 'B's, and (n * m) 'C's.
-        """
         n = random.randint(0, max_n)
         m = random.randint(0, max_m)
         return 'A' * n + 'B' * m + 'C' * (n * m)
 
     def test_an_bm_cnm(self, query):
-        """
-        Tests whether the given string matches the "AnBmCnm" language rule: A^n B^m C^(n*m)
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n 'A's, m 'B's, and (n * m) 'C's, False otherwise.
-        """
         pattern = r'^(A*)(B*)(C*)$'
         match = re.fullmatch(pattern, query)
         if match:
@@ -726,30 +487,11 @@ class Languages:
         return False
 
     def an_bk(self, max_n=10, max_m=10):
-        """
-        Randomly generates a string that matches the "AnBk" language rule: A^n B^(n+m)
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-            max_m (int): The maximum value of m. Default is 10.
-        
-        Returns:
-            str: A string with n 'A's and (n + m) 'B's.
-        """
         n = random.randint(0, max_n)
         m = random.randint(0, max_m)
         return 'A' * n + 'B' * (n + m)
 
     def test_an_bk(self, query):
-        """
-        Tests whether the given string matches the "AnBk" language rule: A^n B^(n+m)
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n 'A's followed by (n + m) 'B's, False otherwise.
-        """
         pattern = r'^(A*)(B*)$'
         match = re.fullmatch(pattern, query)
         if match:
@@ -759,30 +501,11 @@ class Languages:
         return False
 
     def an_bm_cm_an(self, max_n=10, max_m=10):
-        """
-        Randomly generates a string that matches the "AnBmCmAn" language rule: A^n B^m C^m A^n
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-            max_m (int): The maximum value of m. Default is 10.
-        
-        Returns:
-            str: A string with n 'A's, m 'B's, m 'C's, and n 'A's.
-        """
         n = random.randint(0, max_n)
         m = random.randint(0, max_m)
         return 'A' * n + 'B' * m + 'C' * m + 'A' * n
 
     def test_an_bm_cm_an(self, query):
-        """
-        Tests whether the given string matches the "AnBmCmAn" language rule: A^n B^m C^m A^n
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n 'A's, m 'B's, m 'C's, and n 'A's, False otherwise.
-        """
         pattern = r'^(A*)(B*)(C*)(A*)$'
         match = re.fullmatch(pattern, query)
         if match:
@@ -794,28 +517,10 @@ class Languages:
         return False
 
     def an_b2n_c3n(self, max_n=10):
-        """
-        Randomly generates a string that matches the "AnB2nC3n" language rule: A^n B^(2n) C^(3n)
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-        
-        Returns:
-            str: A string with n 'A's, 2n 'B's, and 3n 'C's.
-        """
         n = random.randint(0, max_n)
         return 'A' * n + 'B' * (2 * n) + 'C' * (3 * n)
 
     def test_an_b2n_c3n(self, query):
-        """
-        Tests whether the given string matches the "AnB2nC3n" language rule: A^n B^(2n) C^(3n)
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n 'A's, 2n 'B's, and 3n 'C's, False otherwise.
-        """
         pattern = r'^(A*)(B*)(C*)$'
         match = re.fullmatch(pattern, query)
         if match:
@@ -826,28 +531,10 @@ class Languages:
         return False
 
     def an_bnp1_cnp2(self, max_n=10):
-        """
-        Randomly generates a string that matches the "AnBnp1Cnp2" language rule: A^n B^(n+1) C^(n+2)
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-        
-        Returns:
-            str: A string with n 'A's, (n + 1) 'B's, and (n + 2) 'C's.
-        """
         n = random.randint(0, max_n)
         return 'A' * n + 'B' * (n + 1) + 'C' * (n + 2)
 
     def test_an_bnp1_cnp2(self, query):
-        """
-        Tests whether the given string matches the "AnBnp1Cnp2" language rule: A^n B^(n+1) C^(n+2)
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n 'A's, (n + 1) 'B's, and (n + 2) 'C's, False otherwise.
-        """
         pattern = r'^(A*)(B*)(C*)$'
         match = re.fullmatch(pattern, query)
         if match:
@@ -858,41 +545,14 @@ class Languages:
         return False
 
     def an_u_bn(self, max_n=10):
-        """
-        Randomly generates a string that matches the "AnUBn" language rule: A^n | B^n
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-        
-        Returns:
-            str: Either n 'A's or n 'B's.
-        """
         n = random.randint(0, max_n)
         choice = random.choice(['A', 'B'])
         return choice * n
 
     def test_an_u_bn(self, query):
-        """
-        Tests whether the given string matches the "AnUBn" language rule: A^n | B^n
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of only 'A's or only 'B's, False otherwise.
-        """
         return re.fullmatch(r'^A+$', query) is not None or re.fullmatch(r'^B+$', query) is not None or query == ''
 
     def an_u_anbn(self, max_n=10):
-        """
-        Randomly generates a string that matches the "AnUAnBn" language rule: A^n | (A^n B^n)
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-        
-        Returns:
-            str: Either n 'A's or n 'A's followed by n 'B's.
-        """
         n = random.randint(0, max_n)
         choice = random.choice(['A_only', 'A_then_B'])
         if choice == 'A_only':
@@ -901,15 +561,6 @@ class Languages:
             return 'A' * n + 'B' * n
 
     def test_an_u_anbn(self, query):
-        """
-        Tests whether the given string matches the "AnUAnBn" language rule: A^n | (A^n B^n)
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of only 'A's or consists of n 'A's followed by n 'B's, False otherwise.
-        """
         if re.fullmatch(r'^A+$', query) is not None or query == '':
             return True
         pattern = r'^(A+)B+\1$'
@@ -921,29 +572,11 @@ class Languages:
         return False
 
     def abn_u_ban(self, max_n=10):
-        """
-        Randomly generates a string that matches the "ABnUBAn" language rule: (AB)^n | (BA)^n
-        
-        Args:
-            max_n (int): The maximum value of n. Default is 10.
-        
-        Returns:
-            str: Either n repetitions of "AB" or n repetitions of "BA".
-        """
         n = random.randint(0, max_n)
         choice = random.choice(['AB', 'BA'])
         return choice * n
 
     def test_abn_u_ban(self, query):
-        """
-        Tests whether the given string matches the "ABnUBAn" language rule: (AB)^n | (BA)^n
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string consists of n repetitions of "AB" or n repetitions of "BA", False otherwise.
-        """
         if query == '':
             return True
         pattern_ab = r'^(AB)+$'
@@ -951,29 +584,11 @@ class Languages:
         return re.fullmatch(pattern_ab, query) is not None or re.fullmatch(pattern_ba, query) is not None
 
     def xx(self, max_length=10):
-        """
-        Randomly generates a string that matches the "XX" language rule: XX (two copies of the same string)
-        
-        Args:
-            max_length (int): The maximum length of the base string. Default is 10.
-        
-        Returns:
-            str: A string formed by concatenating two identical substrings.
-        """
         half_length = random.randint(0, max_length)
         base = ''.join(random.choices(['A', 'B'], k=half_length))
         return base * 2
 
     def test_xx(self, query):
-        """
-        Tests whether the given string matches the "XX" language rule: XX (two copies of the same string)
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string can be divided into two identical halves, False otherwise.
-        """
         length = len(query)
         if length % 2 != 0:
             return False
@@ -981,29 +596,11 @@ class Languages:
         return query[:half] == query[half:]
 
     def xxx(self, max_length=10):
-        """
-        Randomly generates a string that matches the "XXX" language rule: XXX (three copies of the same string)
-        
-        Args:
-            max_length (int): The maximum length of the base string. Default is 10.
-        
-        Returns:
-            str: A string formed by concatenating three identical substrings.
-        """
         third_length = random.randint(0, max_length)
         base = ''.join(random.choices(['A', 'B'], k=third_length))
         return base * 3
 
     def test_xxx(self, query):
-        """
-        Tests whether the given string matches the "XXX" language rule: XXX (three copies of the same string)
-        
-        Args:
-            query (str): The string to be tested.
-        
-        Returns:
-            bool: True if the string can be divided into three identical parts, False otherwise.
-        """
         length = len(query)
         if length % 3 != 0:
             return False
@@ -1011,21 +608,8 @@ class Languages:
         return query[:third] == query[third:2*third] == query[2*third:]
 
     def xy(self, max_length=10):
-        """
-        Randomly generates a string that matches the "XY" language rule:
-        X and Y are two non-empty substrings over {A, B} with X != Y, concatenated as X+Y.
-
-        Args:
-            max_length (int): The maximum total length of X+Y. Default is 10.
-
-        Returns:
-            str: A concatenation of two non-empty substrings X, Y such that X != Y.
-        """
-        # Ensure there's at least length=2 to have two non-empty substrings
         length = random.randint(2, max_length)
-        # We'll pick a split point between 1 and length-1
         split_point = random.randint(1, length - 1)
-        # Generate X
         x_len = split_point
         # Generate Y
         y_len = length - split_point
@@ -1036,17 +620,6 @@ class Languages:
                 return X + Y
 
     def test_xy(self, query):
-        """
-        Tests whether the given string can be split into two non-empty substrings X, Y (X+Y = query)
-        such that X != Y.
-
-        Args:
-            query (str): The string to be tested.
-
-        Returns:
-            bool: True if there exists at least one way to split query into X, Y (both non-empty),
-                where X != Y. False otherwise.
-        """
         for split_point in range(1, len(query)):
             X = query[:split_point]
             Y = query[split_point:]
@@ -1055,32 +628,11 @@ class Languages:
         return False
 
     def xxr(self, max_length=10):
-        """
-        Randomly generates a string that matches the "XXR" language rule:
-        A string of the form X + reverse(X).
-
-        Args:
-            max_length (int): The maximum length of X. The final string is twice this length. Default is 10.
-
-        Returns:
-            str: A palindrome of even length.
-        """
-        # Generate X
         x_len = random.randint(1, max_length)
         X = ''.join(random.choices(['A', 'B'], k=x_len))
         return X + X[::-1]
 
     def test_xxr(self, query):
-        """
-        Tests whether the given string matches the "XXR" language rule:
-        The string can be split into X and reverse(X).
-
-        Args:
-            query (str): The string to be tested.
-
-        Returns:
-            bool: True if query = X + reverse(X) for some X, False otherwise.
-        """
         if len(query) % 2 != 0:
             return False
         half = len(query) // 2
@@ -1089,37 +641,14 @@ class Languages:
         return XR == X[::-1]
 
     def invert_string(self, s):
-        """
-        Inverts a string of 'A'/'B': 'A'->'B', 'B'->'A'.
-        """
         return ''.join('B' if c == 'A' else 'A' for c in s)
 
     def xxi(self, max_length=10):
-        """
-        Randomly generates a string that matches the "XXI" language rule:
-        X + inverse(X).
-
-        Args:
-            max_length (int): The maximum length of X. The final string is twice this length. Default is 10.
-
-        Returns:
-            str: A string of length 2 * |X|, where the second half is the inverse of the first.
-        """
         x_len = random.randint(1, max_length)
         X = ''.join(random.choices(['A', 'B'], k=x_len))
         return X + self.invert_string(X)
 
     def test_xxi(self, query):
-        """
-        Tests whether the given string matches the "XXI" language rule:
-        query = X + inverse(X).
-
-        Args:
-            query (str): The string to be tested.
-
-        Returns:
-            bool: True if query can be split into X and inverse(X), False otherwise.
-        """
         if len(query) % 2 != 0:
             return False
         half = len(query) // 2
@@ -1128,31 +657,11 @@ class Languages:
         return X_inv == self.invert_string(X)
 
     def xxri(self, max_length=10):
-        """
-        Randomly generates a string that matches the "XXRI" language rule:
-        X + invert(reverse(X)).
-
-        Args:
-            max_length (int): The maximum length of X. The final string is twice this length. Default is 10.
-
-        Returns:
-            str: A string of length 2 * |X|, second half is invert(reverse(X)).
-        """
         x_len = random.randint(1, max_length)
         X = ''.join(random.choices(['A', 'B'], k=x_len))
         return X + self.invert_string(X[::-1])
 
     def test_xxri(self, query):
-        """
-        Tests whether the given string matches the "XXRI" language rule:
-        query = X + invert(reverse(X)).
-
-        Args:
-            query (str): The string to be tested.
-
-        Returns:
-            bool: True if query can be split into X and invert(reverse(X)), False otherwise.
-        """
         if len(query) % 2 != 0:
             return False
         half = len(query) // 2
@@ -1161,29 +670,11 @@ class Languages:
         return second_half == self.invert_string(X[::-1])
 
     def an2(self, max_n=10):
-        """
-        Randomly generates a string that matches the "An2" language rule: A^(n^2).
-
-        Args:
-            max_n (int): The maximum value of n. The length of the string is n^2. Default is 10.
-
-        Returns:
-            str: A string of 'A' repeated n^2 times.
-        """
         n = random.randint(0, max_n)
         length = n * n
         return 'A' * length
 
     def test_an2(self, query):
-        """
-        Tests whether the given string matches the "An2" language rule: A^(n^2).
-
-        Args:
-            query (str): The string to be tested.
-
-        Returns:
-            bool: True if query is all 'A' and its length is a perfect square, False otherwise.
-        """
         if set(query) == set() or set(query) == {'A'}:
             # Check if length is a perfect square
             length = len(query)
@@ -1192,30 +683,11 @@ class Languages:
         return False
 
     def an_bm_cn_dm(self, max_n=10, max_m=10):
-        """
-        Randomly generates a string that matches the "AnBmCnDm" language rule: A^n B^m C^n D^m.
-
-        Args:
-            max_n (int): Maximum n. Default is 10.
-            max_m (int): Maximum m. Default is 10.
-
-        Returns:
-            str: A^n B^m C^n D^m
-        """
         n = random.randint(0, max_n)
         m = random.randint(0, max_m)
         return 'A' * n + 'B' * m + 'C' * n + 'D' * m
 
     def test_an_bm_cn_dm(self, query):
-        """
-        Tests whether the given string matches the "AnBmCnDm" language rule: A^n B^m C^n D^m.
-
-        Args:
-            query (str): The string to be tested.
-
-        Returns:
-            bool: True if it matches A^n B^m C^n D^m, False otherwise.
-        """
         pattern = r'^(A*)(B*)(C*)(D*)$'
         match = re.fullmatch(pattern, query)
         if match:
@@ -1227,30 +699,11 @@ class Languages:
         return False
 
     def an_bm_an_bm(self, max_n=10, max_m=10):
-        """
-        Randomly generates a string that matches the "AnBmAnBm" language rule: A^n B^m A^n B^m.
-
-        Args:
-            max_n (int): Maximum n. Default is 10.
-            max_m (int): Maximum m. Default is 10.
-
-        Returns:
-            str: A^n B^m A^n B^m
-        """
         n = random.randint(0, max_n)
         m = random.randint(0, max_m)
         return 'A' * n + 'B' * m + 'A' * n + 'B' * m
 
     def test_an_bm_an_bm(self, query):
-        """
-        Tests whether the given string matches the "AnBmAnBm" language rule: A^n B^m A^n B^m.
-
-        Args:
-            query (str): The string to be tested.
-
-        Returns:
-            bool: True if it matches A^n B^m A^n B^m, False otherwise.
-        """
         pattern = r'^(A*)(B*)(A*)(B*)$'
         match = re.fullmatch(pattern, query)
         if match:
@@ -1262,30 +715,11 @@ class Languages:
         return False
 
     def an_bm_an_bm_ccc(self, max_n=10, max_m=10):
-        """
-        Randomly generates a string matching A^n B^m A^n B^m CCC.
-
-        Args:
-            max_n (int): Maximum n. Default is 10.
-            max_m (int): Maximum m. Default is 10.
-
-        Returns:
-            str: A^n B^m A^n B^m CCC
-        """
         n = random.randint(0, max_n)
         m = random.randint(0, max_m)
         return 'A' * n + 'B' * m + 'A' * n + 'B' * m + 'CCC'
 
     def test_an_bm_an_bm_ccc(self, query):
-        """
-        Tests whether the given string matches the rule A^n B^m A^n B^m CCC.
-
-        Args:
-            query (str): The string to be tested.
-
-        Returns:
-            bool: True if it matches A^n B^m A^n B^m CCC, False otherwise.
-        """
         pattern = r'^(A*)(B*)(A*)(B*)CCC$'
         match = re.fullmatch(pattern, query)
         if match:
@@ -1297,16 +731,6 @@ class Languages:
         return False
 
     def an_bm_an_bm_cn_dm(self, max_n=10, max_m=10):
-        """
-        Randomly generates a string matching A^n B^m A^n B^m C^n D^m.
-
-        Args:
-            max_n (int): Maximum n. Default is 10.
-            max_m (int): Maximum m. Default is 10.
-
-        Returns:
-            str: A^n B^m A^n B^m C^n D^m
-        """
         n = random.randint(0, max_n)
         m = random.randint(0, max_m)
         return (
@@ -1319,15 +743,6 @@ class Languages:
         )
 
     def test_an_bm_an_bm_cn_dm(self, query):
-        """
-        Tests whether the given string matches A^n B^m A^n B^m C^n D^m.
-
-        Args:
-            query (str): The string to be tested.
-
-        Returns:
-            bool: True if it matches A^n B^m A^n B^m C^n D^m, False otherwise.
-        """
         pattern = r'^(A*)(B*)(A*)(B*)(C*)(D*)$'
         match = re.fullmatch(pattern, query)
         if match:
@@ -1341,30 +756,12 @@ class Languages:
         return False
     
     def a2en(self, max_n=10):
-        """
-        Randomly generates a string matching A^(2^n).
-
-        Args:
-            max_n (int): Maximum exponent n. The length will be 2^n. Default is 10.
-
-        Returns:
-            str: A string of length 2^n composed of 'A'.
-        """
         # Since 2^10 = 1024, that's still not too large.
         n = random.randint(0, max_n)
         length = 2 ** n
         return 'A' * length
 
     def test_a2en(self, query):
-        """
-        Tests whether the given string matches A^(2^n).
-
-        Args:
-            query (str): The string to be tested.
-
-        Returns:
-            bool: True if query is all 'A' and its length is a power of 2, False otherwise.
-        """
         if set(query) == set() or set(query) == {'A'}:
             length = len(query)
             if length < 1:
@@ -1373,29 +770,11 @@ class Languages:
         return False
 
     def ab_nen(self, max_n=10):
-        """
-        Randomly generates a string matching (AB)^(n^2).
-
-        Args:
-            max_n (int): Maximum n. The final length is 2 * (n^2). Default is 10.
-
-        Returns:
-            str: (AB) repeated n^2 times.
-        """
         n = random.randint(0, max_n)
         reps = n * n  # n^2
         return 'AB' * reps
 
     def test_ab_nen(self, query):
-        """
-        Tests whether the given string matches (AB)^(n^2).
-
-        Args:
-            query (str): The string to be tested.
-
-        Returns:
-            bool: True if query is "AB" repeated k times and k is a perfect square, False otherwise.
-        """
         if len(query) % 2 != 0:
             return False
         pairs = len(query) // 2

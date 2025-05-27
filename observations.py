@@ -2,6 +2,7 @@ from rich import print
 import random
 import copy
 
+
 def get_languages(blackbox, blackbox_name, datapoint, **kwargs):
     nobs = kwargs.get('nobs', 0)
     obs_datapoints = ""
@@ -9,6 +10,7 @@ def get_languages(blackbox, blackbox_name, datapoint, **kwargs):
         input_string = blackbox.run_language(mode="observation")
         obs_datapoints += input_string + "\n" 
     return obs_datapoints[:-len("\n")]
+
 
 def get_programs(blackbox, blackbox_name, datapoint, **kwargs):
     nobs = kwargs.get('nobs', 0)
@@ -22,6 +24,7 @@ def get_programs(blackbox, blackbox_name, datapoint, **kwargs):
         output_list = blackbox.run_program(input_list = input_list, mode = "observation")
         obs_datapoints += f"Input: {input_list}\nOutput: {output_list}\n"
     return obs_datapoints[:-len("\n")]
+
 
 def get_ces(blackbox, blackbox_name, datapoint, **kwargs):
     nobs = kwargs.get('nobs', 0)
