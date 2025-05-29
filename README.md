@@ -50,10 +50,10 @@ Please contact Jiayi Geng at `jiayig@princeton.edu` for any questions or issues.
 
 ## Citation
 ```bibtex
-@article{geng2025are,
-   title={Are Large Language Models Reliable AI Scientists? Assessing Reverse-Engineering of Black-Box Systems},
-   author={Geng, Jiayi and Chen, Howard and Arumugam, Dilip and Griffiths, Thomas L},
-   journal={arXiv preprint arXiv: 2505.17968},
-   year={2025}
+@article{geng2025large,
+  title={Are Large Language Models Reliable AI Scientists? Assessing Reverse-Engineering of Black-Box Systems},
+  author={Geng, Jiayi and Chen, Howard and Arumugam, Dilip and Griffiths, Thomas L},
+  journal={arXiv preprint arXiv:2505.17968},
+  year={2025}
 }
 ```
